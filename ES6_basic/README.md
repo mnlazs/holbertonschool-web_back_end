@@ -205,27 +205,7 @@ Don’t forget to run `$ npm install` when you have the `package.json`
   lastName: 'Salva',
 }
 ```
-
----
-
-## Tasks
-
-### [0. I prefer const when I can. But sometimes let is okay](./0-constants.js)
-Return a Promise using this prototype `function getResponseFromAPI()`
-
-```sh
-bob@dylan:~$ cat 0-main.js
-import getResponseFromAPI from "./0-promise.js";
-
-const response = getResponseFromAPI();
-console.log(response instanceof Promise);
-
-bob@dylan:~$
-bob@dylan:~$ npm run dev 0-main.js
-true
-bob@dylan:~$
-```
 ---
 
 ## Author
-- **Manuel Zambrano** - [fozc](https://github.com/mnlazs) 👨‍🚀
+- **Manuel Zambrano** - [](https://github.com/mnlazs) 👨‍🚀
