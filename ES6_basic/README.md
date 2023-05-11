@@ -208,4 +208,4 @@ Don’t forget to run `$ npm install` when you have the `package.json`
 ---
 
 ## Author
-- **Manuel Zambrano** - [](https://github.com/mnlazs) 👨‍🚀
+- **Manuel Zambrano** - [mnlazs](https://github.com/mnlazs) 👨‍🚀
