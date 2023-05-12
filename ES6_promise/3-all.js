@@ -9,8 +9,8 @@ export default function handleProfileSignup() {
     .then((data) => {
       body = data.body;
       createUser()
-      .then((data) => {
-        firstName = data.firstName;
+        .then((data) => {
+          firstName = data.firstName;
           lastName = data.lastName;
           console.log(`${body} ${firstName} ${lastName}`);
         })
