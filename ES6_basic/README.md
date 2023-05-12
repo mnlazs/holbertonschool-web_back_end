@@ -189,25 +189,7 @@ module.exports = {
 };
 ```
 
-### and...
-Don’t forget to run `$ npm install` when you have the `package.json`
 
-## Response Data Format
-`uploadPhoto` returns a response with the format
-
-```sh
-{
-  status: 200,
-  body: 'photo-profile-1',
-}
-```
-`createUser` returns a response with the format
-```sh
-{
-  firstName: 'Guillaume',
-  lastName: 'Salva',
-}
-```
 ---
 
 ## Author
