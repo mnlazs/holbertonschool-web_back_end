@@ -13,15 +13,12 @@ Read or watch:
 ## Learning Objectives:bulb:
 What you should learn from this project:
 
-- What ES6 is
-- New features introduced in ES6
-- The difference between a constant and a variable
-- Block-scoped variables
-- Arrow functions and function parameters default to them
-- Rest and spread function parameters
-- String templating in ES6
-- Object creation and their properties in ES6
-- Iterators and for-of loops
+- Promises (how, why, and what)
+- How to use the then, resolve, catch methods
+- How to use every method of the Promise object
+- Throw / Try
+- The await operator
+- How to use an async function
 
 ---
 
@@ -188,7 +185,22 @@ module.exports = {
   ]
 };
 ```
+## Response Data Format
+`uploadPhoto` returns a response with the format
 
+```sh
+{
+  status: 200,
+  body: 'photo-profile-1',
+}
+```
+`createUser` returns a response with the format
+```sh
+{
+  firstName: 'Guillaume',
+  lastName: 'Salva',
+}
+```
 
 ---
 
