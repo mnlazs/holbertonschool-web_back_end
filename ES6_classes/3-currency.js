@@ -1,10 +1,11 @@
-class Currency{
-  constructor(code, name){
-    this._code = code
-    this._name = name
-}
-// Getter and Setter for the code attribute
-get code() {
+class Currency {
+  constructor(code, name) {
+    this._code = code;
+    this._name = name;
+  }
+  // Getter and Setter for the code attribute
+
+  get code() {
     return this._code;
   }
 
