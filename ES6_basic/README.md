@@ -129,26 +129,6 @@ module.exports = {
 };
 ```
 
-### utils.js
-Use when you get to tasks requiring `uploadPhoto` and `createUser`.
-
-```sh
-export function uploadPhoto() {
-  return Promise.resolve({
-    status: 200,
-    body: 'photo-profile-1',
-  });
-}
-
-
-export function createUser() {
-  return Promise.resolve({
-    firstName: 'Guillaume',
-    lastName: 'Salva',
-  });
-}
-```
-
 ### .eslintrc.js
 
 ```sh
@@ -189,25 +169,7 @@ module.exports = {
 };
 ```
 
-### and...
-Don’t forget to run `$ npm install` when you have the `package.json`
 
-## Response Data Format
-`uploadPhoto` returns a response with the format
-
-```sh
-{
-  status: 200,
-  body: 'photo-profile-1',
-}
-```
-`createUser` returns a response with the format
-```sh
-{
-  firstName: 'Guillaume',
-  lastName: 'Salva',
-}
-```
 ---
 
 ## Author
