@@ -3,7 +3,7 @@
 ## Resources:books:
 Read or watch:
 * [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-* [Metaprogramming]([https://web.dev/promises/](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/#symbolspecies))
+* [Metaprogramming (https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/#symbolspecies)
 
 ---
 
