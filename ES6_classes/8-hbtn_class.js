@@ -9,7 +9,7 @@ export default class HolbertonClass {
 
   [Symbol.toPrimitive](type) {
     if (type === 'string') return this._location;
-      return this._size;
+    return this._size;
   }
 
   // Setters
