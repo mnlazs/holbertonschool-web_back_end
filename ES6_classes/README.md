@@ -1,4 +1,4 @@
-# ES6_promise
+# ES6_classes
 
 ## Resources:books:
 Read or watch:
