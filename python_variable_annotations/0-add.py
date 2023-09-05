@@ -6,5 +6,7 @@
     :param b: El segundo número a sumar.
     :return: La suma de a y b.
     """
+    
+    
 def add(a: float, b: float) -> float:
     return a + b
