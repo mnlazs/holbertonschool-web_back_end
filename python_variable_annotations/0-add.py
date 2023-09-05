@@ -6,3 +6,4 @@ def add(a: float, b: float) -> float:
     :return: La suma de a y b.
     """
     return a + b
+
