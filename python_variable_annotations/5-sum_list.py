@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+from typing import List
 
-def sum_list(imput_list: float) -> float:
+def sum_list(imput_list: List[float]) -> float:
     """
     Suma una lista de números flotantes y devuelve la suma como un número flotante.
     
