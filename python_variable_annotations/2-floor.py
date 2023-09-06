@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Módulo que contiene la función 'floor' para calcular el entero inferior de un número flotante."""
+"""La función 'floor' calcula el entero inferior de un número flotante."""
 import math
 
 
