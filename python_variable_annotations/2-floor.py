@@ -8,7 +8,7 @@ def floor(n: float) -> int:
     type-annotated function floor.
     :param n: A floating-point number.
     :type n: float
-    
+
     :return: The floor (integer) of the input float.
     :rtype: int
     """
