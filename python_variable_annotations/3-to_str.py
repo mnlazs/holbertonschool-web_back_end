@@ -10,4 +10,4 @@ def to_str(n: float) -> str:
     :return: The String of the input float.
     :rtype: str
     """
-  return to_str(n)
+  return str(n)
