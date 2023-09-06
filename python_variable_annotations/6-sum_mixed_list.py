@@ -3,7 +3,7 @@
 from typing import List, Union
 
 
-def sum_mixed_list(mxd_list: List[Union[int,float]]) -> float:
+def sum_mixed_list(mxd_list: List[Union[int, float]]) -> float:
     """
     Sum lista de números flot y return la sum número flotante.
 
