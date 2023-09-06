@@ -1,7 +1,6 @@
-# Este módulo define y anota varias variables con tipos de datos diferentes
 #!/usr/bin/env python3
-
-# variable 'a' de tipo entero (int) con el valor 1.
+""" Define variables
+    Define and annotate the following variables with the specified values """
 a: int = 1
 
 # variable 'pi' de tipo punto flotante (float) con el valor 3.14.
