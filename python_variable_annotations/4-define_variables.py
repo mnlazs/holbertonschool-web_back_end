@@ -1,4 +1,4 @@
-"""Este módulo define y anota varias variables con tipos de datos diferentes."""
+# Este módulo define y anota varias variables con tipos de datos diferentes
 #!/usr/bin/env python3
 
 # variable 'a' de tipo entero (int) con el valor 1.
