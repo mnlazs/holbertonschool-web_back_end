@@ -1,0 +1,24 @@
+from typing import List
+import asyncio
+from random import uniform
+
+async def wait_random(max_delay: int = 10) -> float:
+    """Función asincrónica que espera un tiempo aleatorio entre 0 y max_delay (incluyendo decimales) segundos."""
+    random_float = uniform(0, max_delay)
+    await asyncio.sleep(random_float)
+    return random_float
+
+async def wait_n(n: int, max_delay: int) -> List[float]:
+    """Función asincrónica que invoca wait_random n veces y devuelve una lista de tiempos de espera en orden ascendente."""
+    delays = []
+    tasks = []
+
+    for _ in range(n):
+        task = asyncio.create_task(wait_random(max_delay))
+        tasks.append(task)
+
+    for task in tasks:
+        await task
+        delays.append(task.result())
+
+    return sorted(delays)
