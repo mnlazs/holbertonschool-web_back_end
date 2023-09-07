@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Import wait_random from the previous python file"""
 from typing import List
 import asyncio
 from random import uniform
@@ -13,13 +14,10 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     """Función asincrónica que invoca wait_random n veces y devuelve una lista de tiempos de espera en orden ascendente."""
     delays = []
     tasks = []
-
     for _ in range(n):
         task = asyncio.create_task(wait_random(max_delay))
         tasks.append(task)
-
     for task in tasks:
         await task
         delays.append(task.result())
-
     return sorted(delays)
