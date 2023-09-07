@@ -14,4 +14,4 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     for delay in asyncio.as_completed(delays):
         earliest_result = await delay
         all_delays.append(earliest_result)
-    return all_delaysq
+    return all_delays
