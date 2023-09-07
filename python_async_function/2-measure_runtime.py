@@ -5,11 +5,13 @@ import asyncio
 import time
 from random import uniform
 
+
 async def wait_random(max_delay: int =10) -> float:
-    """Función asincrónica que espera un tiempo aleatorio entre 0 y max_delay."""
+    """Función asincrónica que espera un tiempo aleatorio """
     random_float = uniform(0, max_delay)
     await asyncio.sleep(random_float)
     return random_float
+
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """Función que invoca wait_random n veces y devuelve una lista."""
@@ -23,8 +25,9 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
         delays.append(task.result())
     return sorted(delays)
 
+
 def measure_time(n: int, max_delay: int) -> float:
-    """Mide el tiempo total de ejecución para wait_n(n, max_delay) y devuelve el tiempo total dividido por n."""
+    """Mide el tiempo total de ejecución para wait_n """
     start_time = time.time()
     asyncio.run(wait_n(n, max_delay))
     end_time = time.time()
