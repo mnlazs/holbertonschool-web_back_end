@@ -15,9 +15,11 @@ class BasicCache(BaseCaching):
         super().___init__()
         
     def put(self, key, item):
-          if key is None or item is None:
+      """El método put representan la clave y el valor 
+          que se agregarán a la caché."""
+      if key is None or item is None:
             return
-          self.cache_data[key] = item
+      self.cache_data[key] = item
           
     def get(self, key):
           if key is None or key not in self.cache_data:
