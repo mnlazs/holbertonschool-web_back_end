@@ -5,10 +5,8 @@ from base_caching import BaseCaching
 
 # Definicion de la super clase
 class BasicCache(BaseCaching):
-    """ BaseCache defines:
-      - constants of your caching system
-      - where your data are stored (in a dictionary)
-    """
+    """ Class that inherits from BaseCaching and is a caching system
+        This caching system doesn’t have limit """
     def __init__(self):
         """ Initiliaze
         """
@@ -18,11 +16,9 @@ class BasicCache(BaseCaching):
       """El método put representan la clave y el valor 
           que se agregarán a la caché."""
       if key is None or item is None:
-            return
-      self.cache_data[key] = item
+        self.cache_data[key] = item
           
     def get(self, key):
           if key is None or key not in self.cache_data:
             return None
-          
           return self.cache_data[key]
