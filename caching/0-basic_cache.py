@@ -10,7 +10,7 @@ class BasicCache(BaseCaching):
     def __init__(self):
         """ Initiliaze
         """
-        super().___init__()
+        super().__init__()
         
     def put(self, key, item):
       """El método put representan la clave y el valor 
