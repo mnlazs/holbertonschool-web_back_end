@@ -1,25 +1,28 @@
-#!/usr/bin/env python3
-"""Creating a FIFOCache class
-"""
+#!/usr/bin/python3
+""" LIFO Caching """
 from base_caching import BaseCaching
 
-class FIFOCache(BaseCaching):
-    """ Class that inherits from BaseCaching and is a caching system"""
+
+class LIFOCache(BaseCaching):
+    """ Class that inherits from BaseCaching and is a caching system """
 
     def __init__(self):
-      """Initialiaze
-      """
-      super().__init__()
-    
-    def put(self, key, item):
-      """El método donde se agregará a la caché."""
-      if key or item is None:
-        return
+        super().__init__()
+        self.last_key = ''
 
-      if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-        last_key = list(self.cache_data.keys())[-1]
-        # Eliminamos el último elemento de la caché
-        del self.cache_data(last_key)
-        print(f"DISCARD: {last_key}\n") 
-# Asignar el valor item a la clave key en la caché
-      self.cache_data[key] = item
+    def put(self, key, item):
+        """ Assign to the dictionary, LIFO algorithm, add element """
+        if key and item:
+            self.cache_data[key] = item
+            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+                print("DISCARD: {}".format(self.last_key))
+                self.cache_data.pop(self.last_key)
+            self.last_key = key
+
+    def get(self, key):
+        """ Return the value linked """
+        if key is None or self.cache_data.get(key) is None:
+            return None
+        if key in self.cache_data:
+            value = self.cache_data[key]
+            return value
