@@ -16,10 +16,9 @@ class FIFOCache(BaseCaching):
       """El método put representan la clave y el valor
             que se agregarán a la caché."""
       if key is not None and item is not None:
-        return
         
         # Verificar si el número de elementos supera el límite
-      if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
         
           # Aplicar el algoritmo FIFO eliminando el elemento mas antiguo
           key_discard = next(iter(self.cache_data))
