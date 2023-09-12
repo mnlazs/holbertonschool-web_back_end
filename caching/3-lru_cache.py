@@ -14,11 +14,20 @@ class LRUCache(BaseCaching):
       if key is None or item is None:
         return
       if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-        print("DISCARD: {}".format(self.last_key))
-        self.cache_data.pop(self.last_key)
-        self.last_key = key
+        # Encuentra la clave del elemento menos recientemente utilizado (LRU)
+        lru_key = None
+        for k in self.cache_data:
+            if lru_key is None or self.cache_data[k]["accessed_at"] < self.cache_data[lru_key]["accessed_at"]:
+                lru_key = k
 
-    def get(self, key):
+        # Elimina el elemento LRU de la caché
+        del self.cache_data[lru_key]
+        print(f"DISCARD: {lru_key}")
+
+    # Agrega el nuevo elemento a la caché
+      self.cache_data[key] = {"value": item, "accessed_at": self.current_time}
+      self.current_time += 1
+      def get(self, key):
         """ Return the value linked """
         if key is None or self.cache_data.get(key) is None:
             return
