@@ -16,7 +16,7 @@ class FIFOCache(BaseCaching):
         """El método put representan la clave y el valor
               que se agregarán a la caché."""
         if key is None or item is None:
-          return
+            return
 
         # Verificar si el número de elementos supera el límite
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
