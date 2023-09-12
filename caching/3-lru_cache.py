@@ -8,6 +8,7 @@ class LRUCache(BaseCaching):
 
     def __init__(self):
       super().__init__()
+      self.current_time = 0
 
     def put(self, key, item):
       """El método put agregarán a la caché."""
