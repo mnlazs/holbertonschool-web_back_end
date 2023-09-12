@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" LRU Caching """
+""" MRU Caching """
 from base_caching import BaseCaching
 
 
@@ -7,27 +7,27 @@ class MRUCache(BaseCaching):
     """ Class that inherits from BaseCaching and is a caching system """
     def __init__(self):
         super().__init__()
-        self.head, self.tail = '-', '='
+        self.head, self.tail = 'head', 'tail'
         self.next, self.prev = {}, {}
         self.handle(self.head, self.tail)
 
     def handle(self, head, tail):
-        """ LRU algorithm, handle elements """
+        """ funcion handle """
         self.next[head], self.prev[tail] = tail, head
 
     def _remove(self, key):
-        """ LRU algorithm, remove element """
+        """remove element """
         self.handle(self.prev[key], self.next[key])
         del self.prev[key], self.next[key], self.cache_data[key]
 
     def _add(self, key, item):
-        """ LRU algorithm, add element """
+        """add element """
         self.cache_data[key] = item
         self.handle(self.prev[self.tail], key)
         self.handle(key, self.tail)
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            print("DISCARD: {}".format(self.next[self.head]))
-            self._remove(self.next[self.head])
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS -1:
+            print("DISCARD: {}".format(self.prev[self.head]))
+            self._remove(self.prev[self.tail])
 
     def put(self, key, item):
         """ Assign to the dictionary """
