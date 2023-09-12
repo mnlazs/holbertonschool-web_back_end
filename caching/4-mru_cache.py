@@ -5,8 +5,9 @@ from base_caching import BaseCaching
 
 class MRUCache(BaseCaching):
     """ Class that inherits from BaseCaching and is a caching system """
-    def __init__(self):
+    def __init__(self, max_items):
         super().__init__()
+        BaseCaching.MAX_ITEMS = max_items
         self.head, self.tail = '-', '='
         self.next, self.prev = {}, {}
         self.handle(self.head, self.tail)
