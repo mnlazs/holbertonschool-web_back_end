@@ -1,35 +1,47 @@
-#!/usr/bin/env python3
-"""Creating a LRUCache class
-"""
+#!/usr/bin/python3
+""" LRU Caching """
 from base_caching import BaseCaching
 
-class LRUCache(BaseCaching):
-    """ Class that inherits from BaseCaching"""
 
+class LRUCache(BaseCaching):
+    """ Class that inherits from BaseCaching and is a caching system """
     def __init__(self):
-      super().__init__()
-      self.current_time = 0
+        super().__init__()
+        self.head, self.tail = '-', '='
+        self.next, self.prev = {}, {}
+        self.handle(self.head, self.tail)
+
+    def handle(self, head, tail):
+        """ LRU algorithm, handle elements """
+        self.next[head], self.prev[tail] = tail, head
+
+    def _remove(self, key):
+        """ LRU algorithm, remove element """
+        self.handle(self.prev[key], self.next[key])
+        del self.prev[key], self.next[key], self.cache_data[key]
+
+    def _add(self, key, item):
+        """ LRU algorithm, add element """
+        self.cache_data[key] = item
+        self.handle(self.prev[self.tail], key)
+        self.handle(key, self.tail)
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            print("DISCARD: {}".format(self.next[self.head]))
+            self._remove(self.next[self.head])
 
     def put(self, key, item):
-      """El método put agregarán a la caché."""
-      if key is None or item is None:
-        return
-      if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-        # Encuentra la clave del elemento menos recientemente utilizado (LRU)
-        lru_key = None
-        for k in self.cache_data:
-            if lru_key is None or self.cache_data[k]["accessed_at"] < self.cache_data[lru_key]["accessed_at"]:
-                lru_key = k
+        """ Assign to the dictionary """
+        if key and item:
+            if key in self.cache_data:
+                self._remove(key)
+            self._add(key, item)
 
-        # Elimina el elemento LRU de la caché
-        del self.cache_data[lru_key]
-        print(f"DISCARD: {lru_key}")
-
-    # Agrega el nuevo elemento a la caché
-      self.cache_data[key] = {"value": item, "accessed_at": self.current_time}
-      self.current_time += 1
-      def get(self, key):
+    def get(self, key):
         """ Return the value linked """
-        if key is None or key not in self.cache_data:
+        if key is None or self.cache_data.get(key) is None:
             return None
-        return self.cache_data[key]["value"]
+        if key in self.cache_data:
+            value = self.cache_data[key]
+            self._remove(key)
+            self._add(key, value)
+            return value
