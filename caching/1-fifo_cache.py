@@ -15,16 +15,17 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """El método put representan la clave y el valor
               que se agregarán a la caché."""
-        if key is not None or item is not None:
+        if key is None or item is None:
+          return
 
-            # Verificar si el número de elementos supera el límite
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+        # Verificar si el número de elementos supera el límite
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
 
-                # Aplicar el algoritmo FIFO eliminando el elemento mas antiguo
-                key_discard = next(iter(self.cache_data))
-                self.cache_data.pop(key_discard)
-                # imprimir mensaje de descarte
-                print("DISCARD:", key_discard)
+            # Aplicar el algoritmo FIFO eliminando el elemento mas antiguo
+            key_discard = next(iter(self.cache_data))
+            self.cache_data.pop(key_discard)
+            # imprimir mensaje de descarte
+            print("DISCARD:", key_discard)
 
         # Asignar el valor item a la clave key en la caché
         self.cache_data[key] = item
