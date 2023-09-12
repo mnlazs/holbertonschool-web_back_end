@@ -12,22 +12,22 @@ class MRUCache(BaseCaching):
         self.handle(self.head, self.tail)
 
     def handle(self, head, tail):
-        """ funcion handle """
+        """ MRU algorithm, handle elements """
         self.next[head], self.prev[tail] = tail, head
 
     def _remove(self, key):
-        """remove element """
+        """ MRU algorithm, remove element """
         self.handle(self.prev[key], self.next[key])
         del self.prev[key], self.next[key], self.cache_data[key]
 
     def _add(self, key, item):
-        """add element """
+        """ MRU algorithm, add element """
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS - 1:
+            print("DISCARD: {}".format(self.prev[self.tail]))
+            self._remove(self.prev[self.tail])
         self.cache_data[key] = item
         self.handle(self.prev[self.tail], key)
         self.handle(key, self.tail)
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS -1:
-            print("DISCARD: {}".format(self.prev[self.head]))
-            self._remove(self.prev[self.tail])
 
     def put(self, key, item):
         """ Assign to the dictionary """
