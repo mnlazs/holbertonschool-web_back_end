@@ -1,7 +1,5 @@
 # Paginación en API REST 📖
 
-![Paginación](pagination.png)
-
 ¡Bienvenido a la documentación sobre cómo implementar la paginación en tus API REST! La paginación es una técnica clave para gestionar grandes conjuntos de datos y proporcionar una experiencia de usuario eficiente.
 
 ## Paginación Simple con Parámetros 📑
@@ -28,7 +26,7 @@ Ejemplo de respuesta:
         "last": "/api/resource?page=5"
     }
 }
-
+```
 Paginación en un Contexto de Eliminación Resistente 🚀
 Para garantizar la eliminación resistente, utiliza identificadores únicos o índices en lugar del orden de los elementos. De esta manera, las eliminaciones no afectan la paginación.
 
