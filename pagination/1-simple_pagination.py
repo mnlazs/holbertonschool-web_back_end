@@ -2,7 +2,9 @@
 import csv
 import math
 from typing import List
-"""copy funcion index_range"""
+"""Este módulo proporciona la funcionalidad
+de paginación de un conjunto de datos de nombres de bebés populares.
+"""
 
 
 def index_range(page, page_size):
