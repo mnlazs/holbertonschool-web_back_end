@@ -29,3 +29,15 @@ Ejemplo de respuesta:
     }
 }
 
+Paginación en un Contexto de Eliminación Resistente 🚀
+Para garantizar la eliminación resistente, utiliza identificadores únicos o índices en lugar del orden de los elementos. De esta manera, las eliminaciones no afectan la paginación.
+
+Ejemplo:
+
+Elementos con identificadores únicos (1, 2, 3, 4, 5)
+Eliminación del elemento 3 y 4
+Paginación aún funciona sin problemas
+Empezando 🚀
+¡Añade la paginación a tus API REST para hacer que tus aplicaciones sean más eficientes y fáciles de usar! Consulta la documentación de tu framework o librería para obtener más detalles sobre cómo implementar la paginación.
+
+¡Diviértete paginando! 📦
