@@ -2,13 +2,12 @@
 import csv
 import math
 from typing import List
-"""Este módulo proporciona la funcionalidad
-de paginación de un conjunto de datos de nombres de bebés populares.
-"""
 
 
 def index_range(page, page_size):
-    """return una tupla"""
+    """Este módulo proporciona la funcionalidad
+    de paginación de un conjunto de datos de nombres de bebés populares.
+    """
     if page and page_size:
         start_index = (page - 1) * page_size
         end_index = start_index + page_size
