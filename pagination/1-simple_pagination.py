@@ -35,9 +35,9 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """definicion de la funcion get_page"""
         assert isinstance(
-            page, int) and page > 0, "Argumento 'page' tiene que ser un entero mayor que '0'"
+            page, int) and page > 0, "'page' tiene que ser un entero > que '0'"
         assert isinstance(
-            page_size, int) and page_size > 0, "Argumento 'page_size' tiene que se mayor que '0'"
+            page_size, int) and page_size > 0, "'page_size' tiene que se > que '0'"
         inicio, fin = index_range(page, page_size)
         pages = []
         if inicio >= len(self.dataset()):
