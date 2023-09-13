@@ -33,6 +33,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """definicion de la funcion get_page"""
         assert isinstance(
             page, int) and page > 0, "Argumento 'page' tiene que ser un entero mayor que '0'"
         assert isinstance(
