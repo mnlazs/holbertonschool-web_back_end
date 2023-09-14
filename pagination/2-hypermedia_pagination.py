@@ -48,7 +48,7 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> List[list]:
         """definicion de la funcion get_hyper"""
-        total_pages = math.ceil(len(self.dataset) / page_size)
+        total_pages = math.ceil(self.dataset) / page_size
         
         if page_number > total_pages:
             page_number = total_pages
