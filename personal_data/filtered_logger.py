@@ -61,8 +61,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
 
 
 def main():
-    """ obtain a database connection using get_db and retrieve all rows in the
-        users table and display each row under a filtered format """
+    """ la funcion no tiene ningun argumento, y no debe retornar nada """
     db = get_db()
     cursor = db.cursor()
     cursor.execute("SELECT * FROM users;")
@@ -75,7 +74,7 @@ def main():
                   f"password={row[4]};"
         print(message)
         log_record = logging.LogRecord("my_logger", logging.INFO,
-                                       None, None, message, None, None)
+                                    None, None, message, None, None)
         formatter = RedactingFormatter(PII_FIELDS)
         formatter.format(log_record)
     cursor.close()
