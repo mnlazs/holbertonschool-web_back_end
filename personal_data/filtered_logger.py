@@ -74,7 +74,7 @@ def main():
                   f"password={row[4]};"
         print(message)
         log_record = logging.LogRecord("my_logger", logging.INFO,
-                                    None, None, message, None, None)
+                                       None, None, message, None, None)
         formatter = RedactingFormatter(PII_FIELDS)
         formatter.format(log_record)
     cursor.close()
