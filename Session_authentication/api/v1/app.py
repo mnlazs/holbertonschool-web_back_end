@@ -22,7 +22,7 @@ elif AUTH_TYPE == 'basic_auth':
     from api.v1.auth.basic_auth import BasicAuth
     auth = BasicAuth()
 elif AUTH_TYPE == "session_auth":
-    auth = SessionAuth()  # Crea una instancia de SessionAuth y asígnala a 'auth'
+    auth = SessionAuth()  #Crea una instancia de SessionAuth y asígnala a 'auth'
 
 
 @app.errorhandler(401)
