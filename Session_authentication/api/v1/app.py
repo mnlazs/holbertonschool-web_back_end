@@ -22,7 +22,7 @@ elif AUTH_TYPE == 'basic_auth':
     from api.v1.auth.basic_auth import BasicAuth
     auth = BasicAuth()
 elif AUTH_TYPE == "session_auth":
-    auth = SessionAuth()  #Crea una instancia de SessionAuth y asígnala a 'auth'
+    auth = SessionAuth()
 
 
 @app.errorhandler(401)
@@ -46,21 +46,31 @@ def not_found(error) -> str:
 
 @app.before_request
 def before_request() -> str:
-    """ method to handler before request """
+    """Execute before each request
+
+        Return:
+            String or nothing
+    """
     if auth is None:
         return
-    excluded_paths = ['/api/v1/status/',
-                      '/api/v1/unauthorized/',
-                      '/api/v1/forbidden/',
-                      '/api/v1/auth_session/login/']
-    if not auth.require_auth(request.path, excluded_paths):
+
+    expath = ['/api/v1/status/',
+              '/api/v1/unauthorized/',
+              '/api/v1/forbidden/',
+              '/api/v1/auth_session/login/']
+
+    if not (auth.require_auth(request.path, expath)):
         return
-    if not auth.authorization_header(request)\
-    and not auth.session_cookie(request):
+
+    if (auth.authorization_header(request)) is None\
+       and auth.session_cookie(request) is None:
         abort(401)
-    if auth.current_user(request) is None:
+
+    current_user = auth.current_user(request)
+    if current_user is None:
         abort(403)
-    request.current_user = auth.current_user(request)
+
+    request.current_user = current_user
 
 
 if __name__ == "__main__":
