@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""creando a SQLAlchemy model named User"""
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String
+
+Base = declarative_base()
+
+
+class User(Base):
+  """Tabla Base"""
+  __tablename__ = 'users'
+  
+  id = Column(Integer, primary_key=True)
+  email = Column(String, nullable=False)
+  hashed_password = Column(String, nullable=False)
+  session_id = Column(String, nullable=False)
+  reset_token = Column(String, nullable=False)
+
+  def __repr__(self):
+      return "<User(email='%s', hashed_password='%s', session_id='%s', reset_token='%s')>" % (
+                        self.email, self.hashed_password, self.session_id, self.session_id, self.reset_token)
