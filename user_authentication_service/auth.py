@@ -8,7 +8,6 @@ from typing import Union
 import bcrypt
 
 
-
 def _hash_password(password: str) -> str:
     """ Returns a salted hash of the input password """
     return hashpw(password.encode('utf-8'), gensalt())
@@ -28,12 +27,9 @@ class Auth:
         except NoResultFound:
             hashed_password = _hash_password(password)
             user = self._db.add_user(email, hashed_password)
-
             return user
-
         else:
             raise ValueError(f'User {email} already exists')
-
 
     def valid_login(self, email: str, password: str) -> bool:
         """If password is valid returns true, else, false"""
