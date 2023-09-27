@@ -35,19 +35,19 @@ class Auth:
             raise ValueError(f'User {email} already exists')
 
 
-def valid_login(self, email: str, password: str) -> bool:
-    """Verifica si el usuario y la clave pueden logearse"""
-    try:
-        user = self._db.find_user_by(email=email)
-        if bcrypt.checkpw(password.encode('utf-8'), user.hashed_password.encode('utf-8')):
-            return True
-    except NoResultFound:
-        pass
-    return False
+    def valid_login(self, email: str, password: str) -> bool:
+        """Verifica si el usuario y la clave pueden logearse"""
+        try:
+            user = self._db.find_user_by(email=email)
+            if bcrypt.checkpw(password.encode('utf-8'), user.hashed_password.encode('utf-8')):
+                return True
+        except NoResultFound:
+            pass
+        return False
 
 
 
-def _generate_uuid() -> str:
-    """
-    """
-    return str(uuid4())
+    def _generate_uuid() -> str:
+        """
+        """
+        return str(uuid4())
