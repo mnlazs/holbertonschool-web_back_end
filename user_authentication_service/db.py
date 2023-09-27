@@ -11,8 +11,7 @@ from user import Base, User
 
 
 class DB:
-    """DB class
-    """
+    """DB class"""
     def __init__(self) -> None:
         """Initialize a new DB instance
         """
@@ -22,7 +21,7 @@ class DB:
         self.__session = None
 
     @property
-    def _session(self) -> Session:
+    def _session(self):
         """Memoized session object
         """
         if self.__session is None:
@@ -37,28 +36,14 @@ class DB:
         self._session.commit()
         return user
 
-    def find_user_by(self, **kwargs) -> User:
-        """ This method takes in arbitrary keyword arguments and
-        returns the first row found in the users table as
-        filtered by the method’s input arguments. No validation
-        of input arguments required at this point. """
-        if not kwargs:
+
+def find_user_by(self, **kwargs) -> User:
+        """ takes in arbitrary keyword arguments and returns the first row
+            found in the users table as filtered by the method’s input
+            arguments """
+        if kwargs is None:
             raise InvalidRequestError
-        users_columns = [
-            'id',
-            'email',
-            'hashed_password',
-            'session_id',
-            'reset_token'
-        ]
-        for arg in kwargs:
-            if arg not in users_columns:
-                raise InvalidRequestError
-
-        """ search table for user """
-        search_user = self.__session.query(User).filter_by(**kwargs).first()
-
-        if search_user:
-            return search_user
-        else:
+        user = self._session.query(User).filter_by(**kwargs).first()
+        if user is None:
             raise NoResultFound
+        return user
