@@ -5,6 +5,8 @@ from bcrypt import hashpw, gensalt, checkpw
 from sqlalchemy.orm.exc import NoResultFound
 from uuid import uuid4
 from typing import Union
+import bcrypt
+
 
 
 def _hash_password(password: str) -> str:
@@ -34,9 +36,18 @@ class Auth:
 
 
 def valid_login(self, email: str, password: str) -> bool:
-    """If password is valid returns true, else, false"""
+    """Verifica si el usuario y la clave pueden logearse"""
     try:
         user = self._db.find_user_by(email=email)
-        return checkpw(password.encode('utf-8'), user.hashed_password)
+        if bcrypt.checkpw(password.encode('utf-8'), user.hashed_password.encode('utf-8')):
+            return True
     except NoResultFound:
-        return False
+        pass
+    return False
+
+
+
+def _generate_uuid() -> str:
+    """
+    """
+    return str(uuid4())
