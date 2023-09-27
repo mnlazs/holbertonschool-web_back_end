@@ -8,10 +8,12 @@ from auth import Auth
 app = Flask(__name__)
 AUTH = Auth()
 
+
 @app.route("/", methods=["GET"])
 def welcome():
     message = {"message": "Bienvenue"}
     return jsonify(message)
+
 
 @app.route('/users', methods=['POST'])
 def register_user() -> str:
@@ -29,7 +31,6 @@ def register_user() -> str:
 
     msg = {"email": email, "message": "user created"}
     return jsonify(msg)
-
 
 
 if __name__ == "__main__":
