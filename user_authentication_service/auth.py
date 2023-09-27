@@ -36,16 +36,12 @@ class Auth:
 
 
     def valid_login(self, email: str, password: str) -> bool:
-        """Verifica si el usuario y la clave pueden logearse"""
+        """If password is valid returns true, else, false"""
         try:
             user = self._db.find_user_by(email=email)
-            if bcrypt.checkpw(password.encode('utf-8'), user.hashed_password.encode('utf-8')):
-                return True
+            return checkpw(password.encode('utf-8'), user.hashed_password)
         except NoResultFound:
-            pass
-        return False
-
-
+            return False
 
     def _generate_uuid() -> str:
         """
