@@ -13,9 +13,10 @@ def _hash_password(password: str) -> str:
     return hashpw(password.encode('utf-8'), gensalt())
 
 
-    def _generate_uuid():
-        """Crea un nuevo UUID y una representacion de la cadena"""
-        return str(uuid.new_uuid())
+def _generate_uuid():
+    """Crea un nuevo UUID y una representacion de la cadena"""
+    new_uuid = uuid.uuid4()
+    return str(new_uuid)
 
 
 class Auth:
