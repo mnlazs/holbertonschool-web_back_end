@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Este módulo contiene la clase Auth que se utiliza para interactuar con la base de datos de autenticación.
+"""
 from db import DB
 from user import User
 from bcrypt import hashpw, gensalt, checkpw
@@ -95,13 +98,11 @@ class Auth:
         """Uses reset token to validate update of users password"""
         if reset_token is None or password is None:
             return None
-
         try:
             user = self._db.find_user_by(reset_token=reset_token)
         except NoResultFound:
             raise ValueError
-
         hashed_password = _hash_password(password)
         self._db.update_user(user.id,
-                            hashed_password=hashed_password,
-                            reset_token=None)
+                             hashed_password=hashed_password,
+                             reset_token=None)
