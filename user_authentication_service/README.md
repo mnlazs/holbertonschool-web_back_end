@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="1791986.png" alt="Ejemplo de imagen centrada" width=20px>
+  <img src="1791986.png" alt="Ejemplo de imagen centrada"  width="200">
 </p>
 
-# User Authentication Service
+# User Authentication Service 
 
 This is a simple User Authentication Service implemented using Python and Flask for educational purposes. In real-world scenarios, it is recommended to use established authentication libraries and frameworks to handle user authentication securely.
 
