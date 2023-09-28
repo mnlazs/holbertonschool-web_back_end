@@ -3,7 +3,7 @@ from db import DB
 from user import User
 from bcrypt import hashpw, gensalt, checkpw
 from sqlalchemy.orm.exc import NoResultFound
-from uuid import uuid4
+from uuid import uuid
 from typing import Union
 import bcrypt
 
@@ -39,7 +39,11 @@ class Auth:
         except NoResultFound:
             return False
 
-    def _generate_uuid() -> str:
+    def _generate_uuid():
         """
+        Generate a new UUID and return it as a string representation.
+        This function is private to the auth module and should not be used outside of it.
         """
-        return str(uuid4())
+        new_uuid = uuid.uuid4()
+        return str(new_uuid)
+
