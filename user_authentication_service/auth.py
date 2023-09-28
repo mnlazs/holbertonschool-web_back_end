@@ -41,9 +41,7 @@ class Auth:
 
     def _generate_uuid():
         """
-        Generate a new UUID and return it as a string representation.
-        This function is private to the auth module and should not be used outside of it.
+        Crea un nuevo UUID y una representacion de la cadena
         """
         new_uuid = uuid.uuid4()
         return str(new_uuid)
-
