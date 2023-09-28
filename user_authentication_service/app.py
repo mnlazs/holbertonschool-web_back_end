@@ -59,6 +59,7 @@ def login() -> str:
 
             return response
 
+
 @app.route("/sessions", methods=["DELETE"])
 def logout():
     """ Method to log out """
@@ -68,6 +69,7 @@ def logout():
         AUTH.destroy_session(user.id)
         return redirect("/", 302)
     abort(403)
+
 
 @app.route("/profile", methods=["GET"])
 def profile():
@@ -83,15 +85,5 @@ def profile():
     abort(403)
 
 
-
-
-
-
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
-
-
-
-
