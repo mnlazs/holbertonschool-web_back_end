@@ -20,7 +20,7 @@ def welcome():
 
 @app.route('/users', methods=['POST'])
 def register_user() -> str:
-
+    """Registrar al usuario en una app"""
     try:
         email = request.form['email']
         password = request.form['password']
