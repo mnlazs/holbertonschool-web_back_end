@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://1791986.png" alt="Ejemplo de imagen centrada">
+  <img src="1791986.png" alt="Ejemplo de imagen centrada" width=20px>
 </p>
 
 # User Authentication Service
