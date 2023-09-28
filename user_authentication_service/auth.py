@@ -3,7 +3,7 @@ from db import DB
 from user import User
 from bcrypt import hashpw, gensalt, checkpw
 from sqlalchemy.orm.exc import NoResultFound
-from uuid import uuid, uuid4
+from uuid import uuid
 from typing import Union
 import bcrypt
 
