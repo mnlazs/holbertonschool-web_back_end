@@ -2,7 +2,7 @@
 """
 Route module for the API
 """
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, redirect
 from auth import Auth
 
 app = Flask(__name__)
@@ -59,6 +59,27 @@ def login() -> str:
 
             return response
 
+@app.route("/sessions", methods=["DELETE"])
+def logout():
+    """ Method to log out """
+    session_id = request.cookies.get('session_id')
+    user = AUTH.get_user_from_session_id(session_id)
+    if user:
+        AUTH.destroy_session(user.id)
+        return redirect("/", 302)
+    abort(403)
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+
+
+
+
