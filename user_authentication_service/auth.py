@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Este módulo contiene la clase Auth que se utiliza \
-para interactuar con la base de datos de autenticación. 
+para interactuar con la base de datos de autenticación.
 """
 from db import DB
 from user import User
