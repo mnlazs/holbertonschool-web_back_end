@@ -12,10 +12,10 @@ def _hash_password(password: str) -> str:
     """ Returns a salted hash of the input password """
     return hashpw(password.encode('utf-8'), gensalt())
 
+
 def _generate_uuid():
-        """Crea un nuevo UUID y una representacion de la cadena"""
-        new_uuid = uuid.uuid4()
-        return str(new_uuid)
+    """Crea un nuevo UUID y una representacion de la cadena"""
+    return str(uuid.new_uuid())
 
 
 class Auth:
@@ -43,5 +43,3 @@ class Auth:
             return checkpw(password.encode('utf-8'), user.hashed_password)
         except NoResultFound:
             return False
-
- 
