@@ -15,3 +15,20 @@ class TestAccessNestedMap(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    
+    
+    @parameterized.expand([
+        ({}, ("a",), "Key 'a' not found in the nested map."),
+        ({"a": 1}, ("a", "b"), "Key 'b' not found in the nested map."),
+    ])
+
+    def test_access_nested_map_exception(self, nested_map, path, expected_exception_message):
+        with self.assertRaises(KeyError) as context:
+          access_nested_map(nested_map, path)
+        
+        # Verificar el mensaje de excepción
+        actual_exception_message = str(context.exception)
+        self.assertEqual(actual_exception_message, expected_exception_message)
+
+if __name__ == '__main__':
+    unittest.main()
