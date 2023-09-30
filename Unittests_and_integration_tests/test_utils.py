@@ -37,8 +37,8 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, test_url, test_payload):
         """ mock testing para probar la solicitud HTTML
         Args:
-            test_url ([type]):
-            test_payload ([type]):
+            test_url ([type])
+            test_payload ([type])
         """
         with patch("requests.get") as mock_get:
                 mock_get.return_value.json.return_value = test_payload
