@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Set de pruebas"""
 import unittest
 from unittest.mock import patch, Mock
 from parameterized import parameterized
@@ -16,7 +17,6 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map(self, nested_map, path, expected_result):
         self.assertEqual(access_nested_map(nested_map, path), expected_result)
 
-
     @parameterized.expand([
         ({}, ("a",)),
         ({"a": 1}, ("a", "b")),
@@ -27,13 +27,14 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, expected)
 
+
 class TestGetJson(unittest.TestCase):
     """ mocking """
-    
+
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
-        ])
+    ])
     def test_get_json(self, test_url, test_payload):
         """ mock testing para probar la solicitud HTTML
         Args:
@@ -41,17 +42,18 @@ class TestGetJson(unittest.TestCase):
             test_payload ([type]):
         """
         with patch("requests.get") as mock_get:
-                mock_get.return_value.json.return_value = test_payload
-                response = get_json(test_url)
-                mock_get.assert_called_once_with(test_url)
-                self.assertEqual(response, test_payload)
+            mock_get.return_value.json.return_value = test_payload
+            response = get_json(test_url)
+            mock_get.assert_called_once_with(test_url)
+            self.assertEqual(response, test_payload)
+
 
 class TestMemoize(unittest.TestCase):
     """ Test Memoize class
     Args:
         unittest ([type]): [description]
     """
-    
+
     def test_memoize(self):
         """ test class memoization
         Args:
