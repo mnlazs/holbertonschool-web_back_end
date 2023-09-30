@@ -37,11 +37,39 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, test_url, test_payload):
         """ mock testing para probar la solicitud HTTML
         Args:
-            test_url ([type])
-            test_payload ([type])
+            test_url ([type]):
+            test_payload ([type]):
         """
         with patch("requests.get") as mock_get:
                 mock_get.return_value.json.return_value = test_payload
                 response = get_json(test_url)
                 mock_get.assert_called_once_with(test_url)
                 self.assertEqual(response, test_payload)
+
+class TestMemoize(unittest.TestCase):
+    """ Test Memoize class
+    Args:
+        unittest ([type]): [description]
+    """
+    
+    def test_memoize(self):
+        """ test class memoization
+        Args:
+            unittest ([type]): [description]
+        """
+        class TestClass:
+            """ Test Memoize class
+            Args:
+                unittest ([type]): [description]
+            """
+
+            def a_method(self):
+                """ Method return a int
+                """
+                return 42
+
+            @memoize
+            def a_property(self):
+                """ method call a method
+                """
+                return self.a_method()
