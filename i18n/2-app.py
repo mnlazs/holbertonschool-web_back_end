@@ -24,9 +24,11 @@ def index():
     """template"""
     return render_template("0-index.html")
 
+
 @babel.localeselector
 def get_locale():
-  return request.accept_languages.best_match(app.config["LANGUAGES"])
+    """determinar el idioma que debe utilizarse"""
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 if __name__ == "__main__":
