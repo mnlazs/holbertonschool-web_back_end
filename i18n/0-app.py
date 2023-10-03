@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Flask Task
 """
-from flask import Flask
+from flask import Flask, render_templat
 
 app = Flask(__name__)
 
