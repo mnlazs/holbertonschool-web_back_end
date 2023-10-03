@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Flask Task
 """
-from flask import Flask, render_templat
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello_word():
+def index():
   """template"""
   return 
 
