@@ -17,7 +17,7 @@ users = {
 
 
 @babel.timezoneselector
-def get_timezone()
+def get_timezone():
     """determina la mejor zona horaria para la app"""
     if request.args.get('timezone'):
         timezone = request.args.get('timezone')
