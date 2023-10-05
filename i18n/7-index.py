@@ -16,26 +16,22 @@ users = {
 }
 
 
-def get_timezone():
-    timezone = request.args.get('timezone')
-    if timezone:
+@babel.timezoneselector
+def get_timezone()
+    """determina la mejor zona horaria para la app"""
+    if request.args.get('timezone'):
+        timezone = request.args.get('timezone')
         try:
-            pytz.timezone(timezone)  # Validate if the timezone is valid.
-            return timezone
+            return timezone(timezone).zone
         except pytz.exceptions.UnknownTimeZoneError:
-            pass
-
-    # If     not found in URL parameters, check if the user is authenticated.
-            if hasattr(g, 'user') and 'timezone' in g.user:
-                try:
-                    # Validate user's timezone.
-                    pytz.timezone(g.user['timezone'])
-                    return g.user['timezone']
-                except pytz.exceptions.UnknownTimeZoneError:
-                    pass
-
-    # If no valid timezone is found, default to UTC.
-                return 'UTC'
+            return None
+    elif g.user and g.user.get('timezone'):
+        try:
+            return timezone(g.user.get('timezone')).zone
+        except pytz.exceptions.UnknownTimeZoneError:
+            return None
+    else:
+        return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 class Config:
