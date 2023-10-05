@@ -38,14 +38,14 @@ def index():
 def get_locale():
     """ funcion preferencia del Idioma
     """
-    #obtiene la preferencia de idioma del usuario
+    # obtiene la preferencia de idioma del usuario
     locale = request.args.get('locale')
-    #si se especifica un idioma en la URL y es compatible
+    # si se especifica un idioma en la URL y es compatible
     if locale and locale in Config.LANGUAGES:
-      return locale
-    #si el usuario esta autenticado, lo devuelve
+        return locale
+    # si el usuario esta autenticado, lo devuelve
     if hasattr(g, "user") and g.user["locale"] in Config.LANGUAGES:
-      return g.user["locale"]
+        return g.user["locale"]
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
