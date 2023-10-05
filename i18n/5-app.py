@@ -47,11 +47,13 @@ def get_locale():
 
 @app.before_request
 def before_request():
+    """se ejecuta antes de cada solicitud"""
     user_id = request.args.get("login_as")
     g.user = get_user(int(user_id)) if user_id else None
 
 
 def get_user(user_id, login_as):
+    """solicita informacion sobre los usuarios"""
     usuario = users.get(user_id)
     if usuario and login_as:
         return usuario
@@ -59,4 +61,4 @@ def get_user(user_id, login_as):
 
 
 if __name__ == '__main__':
-    app.run("0.0.0.0', '5000")
+    app.run("0.0.0.0", "5000")
