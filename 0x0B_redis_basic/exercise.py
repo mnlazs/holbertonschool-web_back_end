@@ -81,5 +81,7 @@ class Cache():
         return self.get(key, int)
 
     def get_str(self, key):
+        """obtiene la cadena de la clave almacenada
+        """
         value = self._redis.get(key)
         return value.decode("utf-8")
