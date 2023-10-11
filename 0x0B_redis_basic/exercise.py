@@ -76,6 +76,8 @@ class Cache():
         return value if not fn else fn(value)
 
     def get_int(self, key):
+        """return the key
+        """
         return self.get(key, int)
 
     def get_str(self, key):
