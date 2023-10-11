@@ -1,4 +1,4 @@
-<img src="lolo.png" alt="Descripción de la imagen" width="300" height="200" align="right">
+<img src="lolo.png" alt="Descripción de la imagen" width="400" height="300" align="right">
 
 # Redis Module
 
