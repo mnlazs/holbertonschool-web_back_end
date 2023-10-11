@@ -1,3 +1,4 @@
+![Logo de mi proyecto](https:/lolo.jpg)
 # Redis Module
 
 This is a Python module for caching and tracking function calls using Redis. It provides decorators for tracking the number of times a function is called and for storing the input and output of the function calls in a Redis database. Additionally, it allows you to replay the function calls along with their inputs and outputs. 
