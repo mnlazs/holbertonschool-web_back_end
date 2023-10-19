@@ -81,5 +81,3 @@
    ```
 
    En este caso, hemos creado un disparador que se ejecutará antes de que se realice una inserción en la tabla "tabla_ejemplo". El disparador registra el evento en una tabla de registros.
-
-Espero que estas respuestas te sean útiles para comprender cómo trabajar con tablas, restricciones, consultas optimizadas, procedimientos almacenados, funciones, vistas y disparadores en MySQL.
