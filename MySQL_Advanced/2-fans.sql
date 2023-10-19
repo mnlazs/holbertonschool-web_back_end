@@ -1,5 +1,5 @@
--- Task : 0. We are all unique! - creates a table users
--- script can be executed on any database
-SELECT DISTINT `origin`, SUM(`fans`) as `nb_fans` FROM `metal_bands`
+-- Task 2: 2. Best band ever! - ranks country origins of bands,
+-- ordered by the number of (non-unique) fans
+SELECT DISTINCT `origin`, SUM(`fans`) as `nb_fans` FROM `metal_bands`
 GROUP BY `origin`
 ORDER BY `nb_fans` DESC;
