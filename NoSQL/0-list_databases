@@ -1,0 +1,2 @@
+// Scrit que publica la base de datos de MongoDB
+show dbs
