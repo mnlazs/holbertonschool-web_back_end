@@ -1,0 +1,2 @@
+// Sript que crea o edita una base de datos llamada my_db
+use my_db
