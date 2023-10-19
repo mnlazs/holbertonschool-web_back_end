@@ -1,4 +1,4 @@
-Por supuesto, responderé a tus preguntas una por una:
+
 
 **1. Cómo crear tablas con restricciones en MySQL:**
    Para crear tablas con restricciones en MySQL, puedes utilizar la sentencia `CREATE TABLE`. A continuación, te muestro un ejemplo de cómo crear una tabla con algunas restricciones comunes:
