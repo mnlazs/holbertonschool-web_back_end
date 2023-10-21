@@ -1,4 +1,4 @@
-![Logo de Mi Proyecto](https://nodejs-45adbe594d.png)
+<img src="nodejs-45adbe594d.png" alt="Descripción de la imagen" width="400" height="300" align="right">
 
 # Node.js
 
