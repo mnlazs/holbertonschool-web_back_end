@@ -1,4 +1,4 @@
-<img src="nodejs-45adbe594d.png" alt="Descripción de la imagen" width="400" height="300" align="right">
+<img src="nodejs-45adbe594d.png" alt="Descripción de la imagen" width="400" height="400" align="right">
 
 # Node.js
 
