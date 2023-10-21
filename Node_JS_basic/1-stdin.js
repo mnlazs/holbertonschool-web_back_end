@@ -1,7 +1,5 @@
-// 0-console.js
-
+// 1-stdin.js
 function displayMessage(message) {
   console.log(message);
 }
 
-module.exports = displayMessage;
