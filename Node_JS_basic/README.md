@@ -69,3 +69,6 @@ En este proyecto, se espera que al final puedas explicar a cualquiera sin la ayu
        console.log(`Servidor Express escuchando en el puerto ${port}`);
      });
      ```
+
+## Author
+- **Manuel Zambrano** - [mnlazs](https://github.com/mnlazs)
