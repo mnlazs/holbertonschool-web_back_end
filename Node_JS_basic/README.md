@@ -1,4 +1,6 @@
-# Habilidades de Node.js
+![Logo de Mi Proyecto](https://nodejs-45adbe594d.png)
+
+# Node.js
 
 En este proyecto, se espera que al final puedas explicar a cualquiera sin la ayuda de Google cómo:
 
