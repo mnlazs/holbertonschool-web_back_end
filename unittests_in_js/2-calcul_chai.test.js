@@ -1,7 +1,8 @@
 // 1-calcul.test.js
-const assert = require('chai');  // Importando el modulo assert
+"use strict";
+const chai = require('chai');  // Importando el modulo chai
 const expect = chai.expect;
-const calculateNumber = required( "./2-calcul_chai.js");
+const calculateNumber = require( "./2-calcul_chai.js"); // importacion de la funcion
 
 
 describe('calculateNumber type == SUM', () => {
