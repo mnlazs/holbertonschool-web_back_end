@@ -1,4 +1,4 @@
-
+<img src="picture.png" alt="Descripción de la imagen" width="400" height="300" align="right">
 
 # Queuing System in JavaScript with Redis
 
